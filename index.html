@@ -123,12 +123,21 @@
 
 }
 
+#divtest{
+    width: 100px;
+    background-color: rgba(0, 0, 0, .5);
+}
+
 
 
 
     </style>
 </head>
 <body>
+
+    <div>
+        <audio autoplay="autoplay" class="efeitoSonoro" src=""></audio>
+    </div>
     
 
     <div id="conteudo-geral">
@@ -163,12 +172,15 @@ function info(){
     let img = document.getElementById('imagem')
     let obj = event.target
     let display1 = document.getElementById('display')
+    let efeitoSonoro = document.querySelector('.efeitoSonoro')
     
     display1.innerHTML = "Nome: "+ obj.dataset.nome + "<br>"
     display1.innerHTML += "Ataque: "+ obj.dataset.ataque + "<br>"
     display1.innerHTML += "Tipo: "+ obj.dataset.tipo + "<br>"
     display1.innerHTML += "Forte contra : "+ obj.dataset.forte + "<br>"
     display1.innerHTML += "Fracon contra : "+ obj.dataset.fraqueza
+    efeitoSonoro.src = "./sons/efeitoEscola.mp3"
+
     
     
     img.style.display='BLOCK'
@@ -181,6 +193,7 @@ function saida(){
     let display1 = document.getElementById('display')
     display1.innerHTML = ""
     img.style.display = "none"
+    
 
 }
 
@@ -188,7 +201,7 @@ function saida(){
 function iniciar(){ 
    
 
-    document.getElementById('imgbulba').addEventListener('click', info)
+    document.getElementById('imgbulba').addEventListener('mouseover', info)
     document.getElementById('imgbulba').addEventListener('mouseout', saida)
 
     document.getElementById('imgcharm').addEventListener('mouseover', info)
